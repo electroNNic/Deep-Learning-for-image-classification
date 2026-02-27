@@ -57,31 +57,36 @@ The experiment was first run for a few epochs to confirm the number of network l
 ### 2. Multi-Layer Perceptron (MLP)
 
 - Fully connected architecture
-  
-- Input (32×32×3)
-→ Flatten
-→ Dense(256)   ← Hidden Layer 1
-→ Dense(256)   ← Hidden Layer 2
-→ Dense(512)   ← Hidden Layer 3
-→ Dense(10)    ← Output
+- The MLP consists of **three fully connected hidden layers**, and the following hyperparameters were tuned:
+
+**Architecture**
+- `units_1` ∈ {256, 512}
+- `units_2` ∈ {256, 512}
+- `units_3` ∈ {256, 512}
+- `activation` ∈ {"relu", "sigmoid", "tanh"} (shared across all hidden layers)
+
+**Optimization**
+- `optimizer` ∈ {"SGD", "Adam"}
+- `learning_rate` ∈ {1e-3, 1e-4, 1e-5}
 
 ---
 
 ### 3. Convolutional Neural Network (CNN)
  
 - Stacked Conv2D + pooling layers    
-- Includes training monitoring
- 
-- Input (32×32×3)
-→ Conv2D(32, 3×3)      ← Conv Layer 1
-→ MaxPool(2×2)
+- The CNN contains **two convolutional blocks**, the following hyperparameters were tuned:
 
-→ Conv2D(64, 5×5)      ← Conv Layer 2
-→ MaxPool(2×2)
+**Convolutional Layers**
+- `filters_1` ∈ {32, 64, 128}
+- `filters_2` ∈ {32, 64, 128}
+- `kernel_size_1` ∈ {3, 5}
+- `kernel_size_2` ∈ {3, 5}
+- `activation` ∈ {"relu", "tanh", "sigmoid"} (shared across conv layers)
+- `padding` ∈ {"same", "valid"} (shared across conv layers)
 
-→ Flatten
-→ Dropout(0.5)
-→ Dense(10)            ← Classifier
+**Optimization**
+- Optimizer: **Adam** (fixed)
+- `learning_rate` ∈ {1e-3, 1e-4, 1e-5}
 
 ---
 
