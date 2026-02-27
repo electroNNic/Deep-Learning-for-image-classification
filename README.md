@@ -35,9 +35,11 @@ This pipeline enables traditional machine learning methods to handle high-dimens
 
 ### 🔹 Deep Learning Pipeline (for MLP & CNN)
 
-- Preserve original image structure (32×32×3)  
-- TensorFlow/Keras tensor input  
-- End-to-end training  
+- Preserve original image structure (32×32×3)
+- Dataset partitioning and preprocessing
+- Using TensorFlow/Keras library(It will be better if you know how to use PyTorch since more convenient)  
+
+The experiment was first run for a few epochs to confirm the number of network layers in the MLP and CNN.
 
 ---
 
@@ -54,15 +56,13 @@ This pipeline enables traditional machine learning methods to handle high-dimens
 
 ### 2. Multi-Layer Perceptron (MLP)
 
-- Implemented using TensorFlow/Keras  
 - Fully connected architecture  
 - Trained on flattened image inputs  
 
 ---
 
 ### 3. Convolutional Neural Network (CNN)
-
-- Implemented using TensorFlow/Keras  
+ 
 - Stacked Conv2D + pooling layers  
 - End-to-end image classifier  
 - Designed specifically for CIFAR-10  
