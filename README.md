@@ -56,19 +56,32 @@ The experiment was first run for a few epochs to confirm the number of network l
 
 ### 2. Multi-Layer Perceptron (MLP)
 
-- Fully connected architecture  
-- Trained on flattened image inputs  
+- Fully connected architecture
+  
+- Input (32×32×3)
+→ Flatten
+→ Dense(256)   ← Hidden Layer 1
+→ Dense(256)   ← Hidden Layer 2
+→ Dense(512)   ← Hidden Layer 3
+→ Dense(10)    ← Output
 
 ---
 
 ### 3. Convolutional Neural Network (CNN)
  
-- Stacked Conv2D + pooling layers  
-- End-to-end image classifier  
-- Designed specifically for CIFAR-10  
-- Includes training monitoring  
+- Stacked Conv2D + pooling layers    
+- Includes training monitoring
+ 
+- Input (32×32×3)
+→ Conv2D(32, 3×3)      ← Conv Layer 1
+→ MaxPool(2×2)
 
-This model represents the primary deep learning approach in the project.
+→ Conv2D(64, 5×5)      ← Conv Layer 2
+→ MaxPool(2×2)
+
+→ Flatten
+→ Dropout(0.5)
+→ Dense(10)            ← Classifier
 
 ---
 
